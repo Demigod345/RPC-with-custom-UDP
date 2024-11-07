@@ -27,9 +27,10 @@ class ReliableUDPServer:
             data, client_address = self.server_socket.recvfrom(SIZE)
             print(f'Received request from {client_address}')
             
-            # Send ACK back to client
+            # Send ACK back to client and print a confirmation message
             self.server_socket.sendto(b'ACK', client_address)
-            
+            print(f'Sent ACK to {client_address} for received request')
+
             try:
                 # Decode the received data
                 function_name, args, kwargs, sequence_number = json.loads(data.decode())

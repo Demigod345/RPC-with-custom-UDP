@@ -18,9 +18,12 @@ class ReliableUDPClient:
         request_packet = json.dumps([function_name, args, kwargs, self.sequence_number]).encode()
 
         for attempt in range(MAX_RETRIES):
+            # Measure time at the start of sending request
+            start_time = time.time()
+
             # Send the request to the server
             self.client_socket.sendto(request_packet, self.server_address)
-            print(f'Sent request {function_name} with sequence {self.sequence_number}')
+            print(f'Sent request {function_name}')
 
             # Wait for ACK
             self.client_socket.settimeout(ACK_TIMEOUT)
@@ -40,18 +43,24 @@ class ReliableUDPClient:
         # Wait for the server's response
         self.client_socket.settimeout(None)  # Disable timeout for actual response
         response_packet, _ = self.client_socket.recvfrom(SIZE)
+        
+        # Measure time after receiving response and calculate response time
+        end_time = time.time()
+        response_time = end_time - start_time
+
         response, seq = json.loads(response_packet.decode())
 
         # Ensure the response matches the request sequence
         if seq == self.sequence_number:
             print(f'Received response: {response}')
+            print(f'Response time: {response_time:.6f} seconds')
         else:
             print('Mismatched response sequence number.')
 
         self.sequence_number += 1  # Increment sequence number for the next request
 
 # Client-Side Usage
-server_address = ('192.168.1.100', 9999)  # Update with server's IP address
+server_address = ('localhost', 9999)  # Update with server's IP address
 
 client = ReliableUDPClient(server_address)
 client.send_request("add", args=[5, 10])
