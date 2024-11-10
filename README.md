@@ -5,16 +5,16 @@
 This project was developed as part of the CSN-341 Computer Networks course. Our team members are:
 
 - Divyansh Jain - 22114032 - divyansh_j@cs.iitr.ac.in
-- [Team Member 2 Name] - [Roll Number]
-- [Team Member 3 Name] - [Roll Number]
-- [Team Member 4 Name] - [Roll Number]
-- [Team Member 4 Name] - [Roll Number]
+- Aaditya Aren - 22114001 - aaditya_a@cs.iitr.ac.in
+- Alind Sharma - 22113013 - alind_s@cs.iitr.ac.in
+- Kunal Bansal - 22115083 - kunal_b@cs.iitr.ac.in
+- Aviral Vishwakarma - 22114017 - aviral_v@cs.iitr.ac.in
 
 ### Course Details
 - **Course**: CSN-341 Computer Networks
-- **Instructor**: Prof. Sandeep Kumar Garg
+- **Instructor**: Dr. Sandeep Kumar Garg
 - **Semester**: Fall 2024
-- **Institution**: Indian Institure of Technology (IIT) Roorkee
+- **Institution**: Indian Institute of Technology (IIT) Roorkee
 
 ### Project Overview
 This project demonstrates the practical application of network programming concepts learned in our Computer Networks course. It implements a client-server architecture to perform remote mathematical operations, showcasing our understanding of:
@@ -137,4 +137,3 @@ Follow these steps to set up and use the application:
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
